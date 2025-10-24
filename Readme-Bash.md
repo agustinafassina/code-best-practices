@@ -3,7 +3,7 @@ List of good practices in Bash so I don't forget.
 
 ### Checklist
 #### 1. Variables name
-- Usar nombres descriptivos en minúsculas, con guiones bajos: $nombre_archivo, $max_retries.
+- Usar nombres descriptivos en minúsculas, con guiones bajos: $file_name, $max_retries.
 - Evitar abreviaturas ambiguas.
 - Usar nombres que reflejen claramente el propósito de la variable.
 
@@ -25,7 +25,7 @@ set -o pipefail  # El pipeline devuelve fallo si cualquier comando falla
 
 #### 4. Uso de Funciones
 - Encapsular tareas reutilizables en funciones.
-- Seguir la convención de nombres (nombre_funcion()).
+- Seguir la convención de nombres (function_name()).
 - Documentar funciones con comentarios.
 
 #### 5. Manejo de Errores
@@ -49,28 +49,29 @@ set -o pipefail  # El pipeline devuelve fallo si cualquier comando falla
 - Evitar variables sin comillas en argumentos de comandos.
 
 #### 9. Buenas Prácticas en Bucles y Condicionales
-Usa for y while con condiciones claras.
-Prefiere [[ ]] en lugar de [ ], ya que tiene más capacidades y mejor sintaxis.
-Aprovecha patrones glob y coincidencias de cadenas.
+- Usar for y while con condiciones claras.
+- Es mejor usar [[ ]] en lugar de [ ], ya que tiene más capacidades y mejor sintaxis.
+- Aprovecha patrones glob y coincidencias de cadenas.
 
 #### 10. Manejo Seguro de Archivos
 - Evitar sobrescribir archivos sin verificar.
 - Usar mktemp para archivos temporales.
 - Usar trap para limpiar en caso de salida inesperada.
+
 #### 11. Legibilidad y Formato
 - Usar indentación consistente (se recomienda espacios en lugar de tabulaciones).
 - Dividir comandos largos en varias líneas usando \ o aquí-docs.
 - Mantener el script compacto pero legible.
+
 #### 12. Validación de Entradas
 - Verificar que los argumentos necesarios estén presentes.
 - Validar rutas, permisos y entradas del usuario.
-#### 13. Portabilidad
-- Usar sintaxis compatible con POSIX si deseas que sea portable.
-- Testear en diferentes sistemas cuando sea posible.
-#### 14. Manejo de Errores y Códigos de Salida
+
+#### 13. Manejo de Errores y Códigos de Salida
 - Devolver códigos de salida útiles y coherentes.
 - Usar trap para manejar limpieza y errores globales.
-#### 15. Registro y Salida
+
+#### 14. Registro y Salida
 - Usar echo o printf para mensajes.
-- Redirigir registros a archivos (>> archivo.log) si es necesario.
+- Redirigir registros a archivos (>> d.log) si es necesario.
 - Tener en cuenta las opciones -v y -x para depuración y modo verbose.
