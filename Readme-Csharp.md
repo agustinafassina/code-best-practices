@@ -87,6 +87,8 @@ var name = user?.Name ?? "Unknown";
 - Un archivo por clase; el nombre del archivo debe coincidir con el de la clase.
 - Estructurar namespaces segun la estructura de carpetas del proyecto.
 - Separar concerns: Controllers, Services, Repositories, Models, DTOs.
+- DTO: Data transfer object, es para datos que se manejan entre varias capas.
+- Entities: referencias a las tablas de las base de datos.
 - Usar proyectos separados para capas (API, Domain, Infrastructure, Application).
 
 #### 14. Testing
