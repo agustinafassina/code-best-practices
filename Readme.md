@@ -1,4 +1,4 @@
-# Code Best Practices
+# Code Best Practices 📚
 Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologias. Lista de checklists para no olvidarme lo importante cuando escribo codigo.
 
 ## Content 📋
@@ -29,3 +29,7 @@ code-best-practices/
 ├── Readme-Cloud-Azure-Aws.md
 └── Readme-Security.md
 ```
+
+## Licence ⚖️
+Uso personal — **Agustina Fassina**.
+Este repositorio es para referencia y uso propio.
