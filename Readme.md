@@ -30,6 +30,5 @@ code-best-practices/
 └── Readme-Security.md
 ```
 
-## Licence ⚖️
-Uso personal — **Agustina Fassina**.
-Este repositorio es para referencia y uso propio.
+### Licence ⚖️
+Creted by **Agustina Fassina** (este repositorio es para referencia y uso propio).
