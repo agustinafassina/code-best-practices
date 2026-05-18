@@ -8,15 +8,7 @@ List of good security practices (cross-cutting) so I don't forget.
 - Fail secure: ante error, denegar acceso en lugar de permitir por defecto.
 - Asumir que todo input es hostil hasta validarlo.
 
-#### 2. OWASP y aplicaciones web 🌐
-- Mitigar OWASP Top 10: injection, broken auth, XSS, misconfiguration, etc.
-- Validar y sanitizar input en servidor (no solo en cliente).
-- Usar ORM o queries parametrizadas; nunca concatenar SQL con input de usuario.
-- Escapar output en HTML (evitar XSS); cuidado con `dangerouslySetInnerHTML` y templates.
-- CSRF: tokens en formularios state-changing; SameSite cookies donde aplique.
-- Rate limiting en login, registro y APIs sensibles.
-
-#### 3. Autenticacion y autorizacion 🔐
+#### 2. Autenticacion y autorizacion 🔐
 - Passwords: hash fuerte (bcrypt, Argon2); nunca guardar en texto plano.
 - MFA en cuentas admin y accesos sensibles.
 - Sesiones con timeout; invalidar al logout; cookies HttpOnly, Secure, SameSite.
@@ -24,33 +16,41 @@ List of good security practices (cross-cutting) so I don't forget.
 - Autorizar en cada request (no solo en login); verificar ownership del recurso (IDOR).
 - OAuth/OIDC: validar state, redirect URIs whitelist, scopes minimos.
 
-#### 4. Secretos y configuracion 🔑
+#### 3. Secretos y configuracion 🔑
 - Nunca commitear `.env`, keys, certificados ni connection strings reales.
 - Usar `.gitignore` y secret scanning (GitHub secret scanning, gitleaks, pre-commit).
 - Secretos en runtime: Key Vault, Secrets Manager, variables de CI cifradas.
 - Rotar secretos tras incidentes o rotacion programada.
 - Separar config por ambiente; no reutilizar secretos de prod en dev.
 
-#### 5. Datos sensibles 🗄️
+#### 4. Datos sensibles 🗄️
 - Clasificar datos (PII, financieros, salud) y tratarlos segun politica.
 - Cifrar en transito (TLS 1.2+) y en reposo cuando el dato lo requiera.
 - Minimizar datos recolectados; no loguear passwords, tokens ni tarjetas completas.
 - Enmascarar PII en logs y en UI cuando no haga falta mostrarla completa.
 - Cumplir retencion y borrado (GDPR, derecho al olvido) donde aplique.
 
-#### 6. Dependencias y supply chain 📦
-- Actualizar dependencias con vulnerabilidades conocidas (Dependabot, Snyk, npm audit).
-- Fijar versiones en lockfiles; revisar cambios en major updates.
-- Verificar integridad de paquetes; preferir fuentes oficiales.
-- Escanear imagenes Docker y artefactos en CI antes de deploy.
+#### 5. OWASP y aplicaciones web 🌐
+- Mitigar OWASP Top 10: injection, broken auth, XSS, misconfiguration, etc.
+- Validar y sanitizar input en servidor (no solo en cliente).
+- Usar ORM o queries parametrizadas; nunca concatenar SQL con input de usuario.
+- Escapar output en HTML (evitar XSS); cuidado con `dangerouslySetInnerHTML` y templates.
+- CSRF: tokens en formularios state-changing; SameSite cookies donde aplique.
+- Rate limiting en login, registro y APIs sensibles.
 
-#### 7. APIs 🔌
+#### 6. APIs 🔌
 - HTTPS obligatorio; redirigir HTTP a HTTPS.
 - Autenticacion en todos los endpoints excepto los publicos documentados.
 - Validar Content-Type y tamano de body; rechazar payloads inesperados.
 - No exponer stack traces ni detalles internos en errores de produccion.
 - Versionar APIs; deprecar con aviso; documentar con OpenAPI.
 - CORS restrictivo: origenes explicitos, no `*` con credenciales.
+
+#### 7. Dependencias y supply chain 📦
+- Actualizar dependencias con vulnerabilidades conocidas (Dependabot, Snyk, npm audit).
+- Fijar versiones en lockfiles; revisar cambios en major updates.
+- Verificar integridad de paquetes; preferir fuentes oficiales.
+- Escanear imagenes Docker y artefactos en CI antes de deploy.
 
 #### 8. Infraestructura y red 🏗️
 - Cerrar puertos innecesarios; SSH/RDP solo desde bastion o VPN.
@@ -66,7 +66,7 @@ List of good security practices (cross-cutting) so I don't forget.
 - Aprobaciones manuales para deploy a prod.
 - No imprimir secretos en logs de CI.
 
-#### 10. Logging, monitoreo e incidentes 📊
+#### 10. Logging y monitoreo 📊
 - Loguear eventos de seguridad: login fallido, cambios de permisos, accesos admin.
 - No loguear datos sensibles en texto plano.
 - Alertas ante patrones anomalos (brute force, picos de errores 401/403).

@@ -26,7 +26,7 @@ private const int MaxRetries = 3;
 public record User(string Name, string Email);
 ```
 
-#### 4. Metodos ⚙️
+#### 4. Funciones y metodos ⚙️
 - Mantener metodos cortos y enfocados en una tarea.
 - Limitar el numero de parametros (max. 3-4); usar objetos o records para agrupar.
 - Usar expresiones de metodo (=>) para metodos de una sola linea cuando sea apropiado.
@@ -53,7 +53,7 @@ var name = user?.Name ?? "Unknown";
 - Evitar multiples iteraciones sobre la misma coleccion; materializar una vez si se reutiliza.
 - Usar colecciones inmutables (ImmutableList, ImmutableDictionary) cuando los datos no cambien.
 
-#### 8. Async y Await ⏳
+#### 8. Async y await ⏳
 - Usar async/await para operaciones I/O; evitar async void (excepto event handlers).
 - Siempre usar CancellationToken en metodos async para permitir cancelacion.
 - Usar ConfigureAwait(false) en librerias cuando no se necesite el contexto de sincronizacion.
@@ -77,13 +77,19 @@ var name = user?.Name ?? "Unknown";
 - Usar parametros preparados en consultas SQL para evitar inyeccion.
 - Aplicar principio de menor privilegio en permisos.
 
-#### 12. Performance ⚡
+#### 12. Testing 🧪
+- Escribir tests unitarios para logica de negocio critica.
+- Usar nombres descriptivos: MethodName_Scenario_ExpectedBehavior.
+- Preferir AAA (Arrange, Act, Assert) para estructura clara.
+- Mockear dependencias; evitar tests que dependan de I/O o red real.
+
+#### 13. Performance ⚡
 - Evitar boxing innecesario; usar tipos genericos cuando sea posible.
 - Usar StringBuilder para concatenacion de cadenas en bucles.
 - Considerar Span<T> y Memory<T> para manipulacion de buffers sin copias.
 - Usar object pooling para objetos que se crean y destruyen frecuentemente.
 
-#### 13. Organizacion de archivos y proyectos 📂
+#### 14. Estructura y organizacion 📂
 - Un archivo por clase; el nombre del archivo debe coincidir con el de la clase.
 - Estructurar namespaces segun la estructura de carpetas del proyecto.
 - Separar concerns: Controllers, Services, Repositories, Models, DTOs.
@@ -91,13 +97,7 @@ var name = user?.Name ?? "Unknown";
 - Entities: referencias a las tablas de las base de datos.
 - Usar proyectos separados para capas (API, Domain, Infrastructure, Application).
 
-#### 14. Testing 🧪
-- Escribir tests unitarios para logica de negocio critica.
-- Usar nombres descriptivos: MethodName_Scenario_ExpectedBehavior.
-- Preferir AAA (Arrange, Act, Assert) para estructura clara.
-- Mockear dependencias; evitar tests que dependan de I/O o red real.
-
-#### 15. Estructura y legibilidad ✨
+#### 15. Legibilidad y formato ✨
 - Usar regiones con moderacion; preferir archivos mas pequeños.
 - Agrupar miembros relacionados (campos, propiedades, metodos).
 - Mantener indentacion y formato consistente (usar .editorconfig o formateador).

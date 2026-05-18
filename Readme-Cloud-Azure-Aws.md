@@ -2,13 +2,13 @@
 List of good practices in Azure and AWS so I don't forget.
 
 ### Checklist 📋
-#### 1. Naming y convenciones 🏷️
+#### 1. Naming conventions 🏷️
 - Usar un patron consistente: `{org}-{env}-{region}-{service}-{resource}` (ej: acme-prod-eus2-app-api).
 - Evitar nombres genericos (test, temp, resource1); incluir proposito y ambiente.
 - Documentar el estandar de naming en el README del proyecto o en un ADR.
 - Respetar limites de longitud y caracteres de cada servicio (Azure y AWS varian).
 
-#### 2. Tags y metadata 🔖
+#### 2. Tags y metadata 📐
 - Aplicar tags obligatorios en todos los recursos: Environment, Owner, CostCenter, Project, ManagedBy.
 - Usar Azure Policy o AWS Tag Policies para exigir tags en creacion.
 - Tags para facturacion y reportes de costos; revisar recursos sin tag periodicamente.
@@ -54,7 +54,7 @@ List of good practices in Azure and AWS so I don't forget.
 - Backups automaticos en SQL (Azure SQL, RDS); probar restores periodicamente.
 - Usar connection strings desde Key Vault / Secrets Manager, no en codigo.
 
-#### 9. Monitoreo, logging y alertas 📊
+#### 9. Monitoreo y logging 📊
 - **Azure**: Log Analytics, Application Insights, Azure Monitor alerts.
 - **AWS**: CloudWatch Logs, metrics, alarms; X-Ray o equivalente para tracing.
 - Centralizar logs; retencion alineada a compliance.

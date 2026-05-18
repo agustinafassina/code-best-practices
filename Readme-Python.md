@@ -2,7 +2,7 @@
 List of good practices in Python so I don't forget.
 
 ### Checklist 📋
-#### 1. Naming conventions (PEP 8) 🏷️
+#### 1. Naming conventions 🏷️
 - Usar snake_case para variables, funciones y modulos: user_name, get_user_by_id.
 - Usar PascalCase para clases: UserService, DataProcessor.
 - Usar MAYUSCULAS_CON_GUIONES para constantes: MAX_RETRIES, API_URL.
@@ -15,7 +15,7 @@ List of good practices in Python so I don't forget.
 def get_user(user_id: int) -> User | None:
     ...
 ```
-- Preferir None explicito sobre null; usar Optional[T] o T | None para valores opcionales.
+- Preferir None explicito; usar Optional[T] o T | None para valores opcionales.
 - Usar dataclasses o NamedTuple para estructuras de datos claras:
 ```python
 from dataclasses import dataclass
@@ -30,11 +30,11 @@ class User:
 - Agrupar imports: stdlib, third-party, local; separar cada grupo con linea en blanco.
 - Evitar import *; importar solo lo necesario.
 - Ordenar imports alfabeticamente dentro de cada grupo.
-- Usar import absolutos sobre relativos cuando sea posible.
+- Usar imports absolutos sobre relativos cuando sea posible.
 
 #### 4. Funciones ⚙️
 - Mantener funciones cortas y con una sola responsabilidad.
-- Limitar parametros (aax. 3-4); usar *args/**kwargs con cuidado.
+- Limitar parametros (max. 3-4); usar *args/**kwargs con cuidado.
 - Nombrar funciones con verbos: get_user, save_data, validate_input.
 - Usar docstrings (Google o NumPy style) para documentar:
 ```python
@@ -84,7 +84,7 @@ squares = (x**2 for x in range(1000000))
 - Crear requirements.txt o pyproject.toml para dependencias.
 - Fijar versiones de dependencias para reproducibilidad.
 
-#### 9. Async (asyncio) ⏳
+#### 9. Async y await ⏳
 - Usar async/await para operaciones I/O concurrentes.
 - Usar asyncio.gather() para ejecutar tareas en paralelo cuando sea posible.
 - Evitar bloqueos en codigo async; usar asyncio.sleep en lugar de time.sleep.
@@ -96,7 +96,7 @@ squares = (x**2 for x in range(1000000))
 - Usar # para comentarios inline; mantenerlos cortos.
 - Documentar decisiones no obvias o trampas conocidas.
 
-#### 11. Seguridad 🛡️
+#### 11. Seguridad 🔒
 - Nunca hardcodear secretos; usar variables de entorno o .env (python-dotenv).
 - Validar y sanitizar entradas; usar bibliotecas como pydantic para validacion.
 - Evitar eval() y exec() con input de usuario; riesgo de inyeccion.
@@ -109,7 +109,7 @@ squares = (x**2 for x in range(1000000))
 - Mockear I/O y dependencias externas; usar unittest.mock o pytest-mock.
 - Mantener tests rapidos; separar tests de integracion de unitarios.
 
-#### 13. Estructura de proyectos 📂
+#### 13. Estructura y organizacion 📂
 - Seguir estructura estandar: src/, tests/, docs/, etc.
 - Un modulo por archivo; nombre del archivo en snake_case.
 - Usar __init__.py para paquetes; exponer API publica de forma controlada.
