@@ -16,6 +16,25 @@ Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologi
 ## Uso 💻
 Cada archivo sigue una estructura de **Checklist** con puntos numerados. Usa los readmes como referencia rapida antes de escribir codigo o durante code reviews.
 
+
+## Orden de secciones 🧭
+Los readmes comparten el mismo orden de titulos donde aplica. Las secciones especificas de cada stack van en el medio; el contenido de cada una sigue las convenciones de esa tecnologia.
+
+| Orden | Seccion | Aplica a |
+|-------|---------|----------|
+| 1 | Naming conventions 🏷️ | Todos |
+| 2 | Variables y tipos 📐 | Lenguajes, Cloud (tags), Terraform (variables) |
+| 3 | Imports / modulos 📥 | Python, Terraform |
+| 4 | Funciones ⚙️ | Lenguajes de programacion |
+| — | *Secciones especificas del stack* | React, Next.js, LINQ, modulos, red cloud, etc. |
+| n-6 | Manejo de errores ❌ | Lenguajes |
+| n-5 | Comentarios y documentacion 📝 | Todos |
+| n-4 | Seguridad 🔒 | Todos |
+| n-3 | Testing 🧪 | Lenguajes |
+| n-2 | Performance ⚡ | Lenguajes, Cloud (costos) |
+| n-1 | Estructura y organizacion 📂 | Todos |
+| n | Legibilidad / Formato y herramientas ✨ 🛠️ | Todos |
+
 ## Folder structure 🗂️
 ```
 code-best-practices/
