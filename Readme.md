@@ -10,6 +10,8 @@ Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologi
 | [PowerShell](Readme-Powershell.md) | PowerShell: verb-noun, ForEach, try/catch, Write-* cmdlets, seguridad y optimizacion |
 | [Python](Readme-Python.md) | Python: PEP 8, type hints, virtualenv, async, list comprehensions, context managers |
 | [Terraform](Readme-Terraform.md) | Terraform: modulos, estado remoto, variables, plan/apply, seguridad, workspaces |
+| [Azure y AWS](Readme-Cloud-Azure-Aws.md) | Cloud: naming, tags, IAM/RBAC, red, secretos, monitoreo, costos, DR, governance |
+| [Security](Readme-Security.md) | Seguridad transversal: OWASP, auth, secretos, APIs, dependencias, CI/CD, logging |
 
 ## Uso 💻
 Cada archivo sigue una estructura de **Checklist** con puntos numerados. Usa los readmes como referencia rapida antes de escribir codigo o durante code reviews.
@@ -23,5 +25,7 @@ code-best-practices/
 ├── Readme-Javascript.md
 ├── Readme-Powershell.md
 ├── Readme-Python.md
-└── Readme-Terraform.md
+├── Readme-Terraform.md
+├── Readme-Cloud-Azure-Aws.md
+└── Readme-Security.md
 ```
