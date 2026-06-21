@@ -17,6 +17,13 @@ Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologi
 ## Uso 💻
 Cada archivo sigue una estructura de **Checklist** con puntos numerados. Usa los readmes como referencia rapida antes de escribir codigo o durante code reviews.
 
+## Cursor rules (IA) 🤖
+Plantillas en [templates/cursor-rules/](templates/cursor-rules/) para copiar a `.cursor/rules/` de cada proyecto. La IA las aplica automaticamente al editar archivos del stack (ej. `**/*.cs`).
+
+| Template | Checklist |
+|----------|-----------|
+| [csharp.mdc](templates/cursor-rules/csharp.mdc) | [Readme-Csharp.md](Readme-Csharp.md) |
+
 
 ## Orden de secciones 🧭
 Los readmes comparten el mismo orden de titulos donde aplica. Las secciones especificas de cada stack van en el medio; el contenido de cada una sigue las convenciones de esa tecnologia.
@@ -48,7 +55,11 @@ code-best-practices/
 ├── Readme-Terraform.md
 ├── Readme-Azure.md
 ├── Readme-Aws.md
-└── Readme-Security.md
+├── Readme-Security.md
+└── templates/
+    └── cursor-rules/
+        ├── Readme.md
+        └── csharp.mdc
 ```
 
 ### Licence ⚖️

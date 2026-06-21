@@ -1,6 +1,8 @@
 ## Best practices in C# 🔷
 List of good practices in C# so I don't forget.
 
+> **Cursor:** para que la IA aplique estas practicas en un proyecto, copia [templates/cursor-rules/csharp.mdc](templates/cursor-rules/csharp.mdc) a `.cursor/rules/csharp.mdc` del repo.
+
 ### Checklist 📋
 #### 1. Naming conventions 🏷️
 - Usar PascalCase para clases, metodos, propiedades, constantes y namespaces.

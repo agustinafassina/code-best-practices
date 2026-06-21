@@ -1,0 +1,63 @@
+---
+description: C# coding standards — naming, DI, async, errors, null safety
+globs: **/*.{cs,csx}
+alwaysApply: false
+---
+
+# C# standards
+
+Checklist completa: `Readme-Csharp.md` (repo code-best-practices).
+
+## Naming
+- PascalCase: clases, metodos, propiedades, constantes, namespaces
+- camelCase: variables locales, parametros; `_camelCase` para campos privados
+- Metodos con verbos: `GetUserById`, `SaveData`, `ValidateInput`
+
+## Types and classes
+- `var` solo cuando el tipo sea obvio; preferir `readonly` y `const`
+- SRP: clases pequenas; propiedades sobre campos publicos
+- Preferir `record` e inmutabilidad cuando aplique
+- Max 3-4 parametros; agrupar con records/DTOs
+
+## Errors and nulls
+- try-catch solo donde se maneje el error; no capturar `Exception` generica sin re-throw
+- Usar `throw;` (no `throw ex;`); `ArgumentNullException` / `ArgumentException` en params
+- Nullable reference types: `string?`; usar `?.` y `??`
+
+## Async
+- `async/await` para I/O; evitar `async void` (salvo event handlers)
+- `CancellationToken` en metodos async; sufijo `Async` en nombres
+- `ConfigureAwait(false)` en librerias
+
+## DI and structure
+- Inyectar por constructor; interfaces sobre implementaciones concretas
+- DbContext scoped; servicios stateless transient; singleton con cuidado
+- Capas: API, Application, Domain, Infrastructure — DTOs vs Entities separados
+- Un archivo por clase; namespace alineado a carpetas
+
+## LINQ, security, tests
+- LINQ cuando mejore legibilidad; materializar (`ToList`) solo si reutilizas la coleccion
+- Secretos en User Secrets / env / Key Vault — nunca hardcodeados
+- SQL parametrizado; validar input de usuario
+- Tests AAA: `MethodName_Scenario_ExpectedBehavior`; mockear I/O
+
+## Examples
+
+```csharp
+// DI + async + null safety
+public class UserService(IUserRepository repository)
+{
+    public async Task<User?> GetUserByIdAsync(int id, CancellationToken ct)
+    {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(id);
+        return await repository.FindByIdAsync(id, ct).ConfigureAwait(false);
+    }
+}
+
+// Re-throw
+catch (SqlException ex)
+{
+    _logger.LogError(ex, "DB error");
+    throw;
+}
+```
