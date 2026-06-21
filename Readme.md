@@ -11,7 +11,7 @@ Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologi
 | [Python](Readme-Python.md) | Python: PEP 8, type hints, virtualenv, async, list comprehensions, context managers |
 | [Terraform](Readme-Terraform.md) | Terraform: modulos, estado remoto, variables, plan/apply, seguridad, workspaces |
 | [Azure y AWS](Readme-Cloud-Azure-Aws.md) | Cloud: naming, tags, IAM/RBAC, red, secretos, monitoreo, costos, DR, governance |
-| [Security](Readme-Security.md) | Seguridad transversal: OWASP, auth, secretos, APIs, dependencias, CI/CD, logging |
+| [Security](Readme-Security.md) | Seguridad transversal: auth, OWASP, secretos, APIs, validacion, uploads, webhooks, contenedores, criptografia |
 
 ## Uso 💻
 Cada archivo sigue una estructura de **Checklist** con puntos numerados. Usa los readmes como referencia rapida antes de escribir codigo o durante code reviews.

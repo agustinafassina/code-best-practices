@@ -10,8 +10,10 @@ List of good security practices (cross-cutting) so I don't forget.
 
 #### 2. Autenticacion y autorizacion 🔐
 - Passwords: hash fuerte (bcrypt, Argon2); nunca guardar en texto plano.
+- Politica de passwords: longitud minima, bloqueo tras intentos fallidos, no reutilizar passwords comunes.
 - MFA en cuentas admin y accesos sensibles.
 - Sesiones con timeout; invalidar al logout; cookies HttpOnly, Secure, SameSite.
+- Mensajes genericos en login ("credenciales invalidas"); no revelar si el usuario existe (evitar enumeracion).
 - JWT: firmar y verificar; TTL corto; refresh tokens con rotacion; no guardar secretos en el payload.
 - Autorizar en cada request (no solo en login); verificar ownership del recurso (IDOR).
 - OAuth/OIDC: validar state, redirect URIs whitelist, scopes minimos.
@@ -37,6 +39,8 @@ List of good security practices (cross-cutting) so I don't forget.
 - Escapar output en HTML (evitar XSS); cuidado con `dangerouslySetInnerHTML` y templates.
 - CSRF: tokens en formularios state-changing; SameSite cookies donde aplique.
 - Rate limiting en login, registro y APIs sensibles.
+- Proteger contra SSRF: validar URLs en fetch server-side; bloquear IPs internas y metadata endpoints.
+- No deserializar datos no confiables sin validacion (JSON/XML/YAML de usuarios).
 
 #### 6. APIs 🔌
 - HTTPS obligatorio; redirigir HTTP a HTTPS.
@@ -83,3 +87,45 @@ List of good security practices (cross-cutting) so I don't forget.
 - Threat modeling ligero en features nuevas de alto riesgo.
 - Capacitar al equipo en phishing y credenciales compartidas.
 - Pentest o bug bounty en apps criticas segun presupuesto y exposicion.
+
+#### 13. Validacion de entradas ✅
+- Validar en servidor siempre; la validacion del cliente es solo UX.
+- Preferir whitelist (valores permitidos) sobre blacklist.
+- Limitar longitud, rango y formato de cada campo; rechazar tipos inesperados.
+- Normalizar input antes de validar (trim, encoding, case) cuando aplique.
+- Usar esquemas de validacion (Pydantic, Zod, FluentValidation, Data Annotations).
+
+#### 14. Subida de archivos 📎
+- Validar extension, MIME type y tamano maximo; no confiar solo en la extension.
+- Renombrar archivos subidos; nunca ejecutar uploads en el directorio web.
+- Almacenar en blob storage o fuera del webroot; servir via URL firmada o proxy.
+- Escanear malware en uploads sensibles cuando el negocio lo requiera.
+- Bloquear tipos peligrosos (.exe, .php, .svg con script embebido) por defecto.
+
+#### 15. Configuracion segura ⚙️
+- Deshabilitar debug y stack traces en produccion.
+- Cambiar credenciales por defecto de servicios, DBs y paneles admin.
+- Desactivar features, endpoints y puertos que no se usen.
+- Separar ambientes: datos, secretos y accesos distintos entre dev/staging/prod.
+- Revisar permisos de archivos y carpetas en servidores (least privilege).
+- Mantener un `.env.example` sin valores reales; documentar variables requeridas.
+
+#### 16. Webhooks e integraciones externas 🔗
+- Verificar firma de webhooks (HMAC-SHA256 o mecanismo del proveedor).
+- Usar secretos unicos por integracion; rotarlos periodicamente.
+- Proteger contra replay: timestamp + tolerancia corta o idempotency keys.
+- Validar origen IP o certificado cuando el proveedor lo permita.
+- No exponer tokens de terceros en frontend ni en logs.
+
+#### 17. Contenedores y runtime 🐳
+- No correr contenedores como root; usar usuario no privilegiado.
+- Imagenes minimas y actualizadas; escanear CVEs en CI (Trivy, Grype, Snyk).
+- Read-only filesystem cuando sea posible; limitar capabilities del contenedor.
+- No incluir secretos en la imagen; inyectar en runtime via secrets manager.
+- Firmar imagenes y verificar provenance en deploys criticos.
+
+#### 18. Criptografia 🔏
+- No inventar criptografia propia; usar librerias probadas (libsodium, BouncyCastle, .NET crypto APIs).
+- Comparar tokens y hashes con funciones constant-time (evitar timing attacks).
+- TLS 1.2+ en transito; algoritmos actuales para cifrado en reposo (AES-256, etc.).
+- Gestionar rotacion de claves; no hardcodear keys de cifrado en codigo.
