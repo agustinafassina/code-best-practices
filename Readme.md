@@ -10,7 +10,8 @@ Coleccion de buenas practicas de programacion en distintos lenguajes y tecnologi
 | [PowerShell](Readme-Powershell.md) | PowerShell: verb-noun, ForEach, try/catch, Write-* cmdlets, seguridad y optimizacion |
 | [Python](Readme-Python.md) | Python: PEP 8, type hints, virtualenv, async, list comprehensions, context managers |
 | [Terraform](Readme-Terraform.md) | Terraform: modulos, estado remoto, variables, plan/apply, seguridad, workspaces |
-| [Azure y AWS](Readme-Cloud-Azure-Aws.md) | Cloud: naming, IAM, red, secretos, compute, storage, TLS, DNS, AKS/EKS, costos, DR, governance |
+| [Azure](Readme-Azure.md) | Azure: naming, RBAC, VNet, Key Vault, App Service/AKS, costos, DR, governance |
+| [AWS](Readme-Aws.md) | AWS: naming, IAM, VPC, Secrets Manager, Lambda/EKS, costos, DR, governance |
 | [Security](Readme-Security.md) | Seguridad transversal: auth, OWASP, secretos, APIs, validacion, uploads, webhooks, contenedores, criptografia |
 
 ## Uso 💻
@@ -45,7 +46,8 @@ code-best-practices/
 ├── Readme-Powershell.md
 ├── Readme-Python.md
 ├── Readme-Terraform.md
-├── Readme-Cloud-Azure-Aws.md
+├── Readme-Azure.md
+├── Readme-Aws.md
 └── Readme-Security.md
 ```
 
